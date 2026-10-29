@@ -10,8 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #0b7a75;
-      --primary-dark: #075955;
+      --primary: #6a3fb5;
+      --primary-dark: #4a2a8a;
       --accent: #f4a261;
       --bg: #f7fbfb;
       --surface: #ffffff;
@@ -116,10 +116,10 @@
       border-radius: 16px; padding: 26px;
       transition: transform .2s, box-shadow .2s;
     }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(11,122,117,.12); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(106,63,181,.12); }
     .icon {
       width: 48px; height: 48px; border-radius: 12px;
-      background: rgba(11,122,117,.12); color: var(--primary);
+      background: rgba(106,63,181,.12); color: var(--primary);
       display: grid; place-items: center; font-size: 1.4rem; margin-bottom: 14px;
     }
     .card h3 { font-size: 1.1rem; margin-bottom: 6px; }
@@ -233,6 +233,14 @@
     .store-details { display: grid; gap: 18px; }
     .store-left { display: grid; gap: 14px; justify-items: start; }
     .store-left .store-photo { width: 100%; }
+    .slider-dots { display: flex; gap: 10px; justify-content: center; width: 100%; }
+    .slider-dots button { width: 12px; height: 12px; border-radius: 50%; border: none; padding: 0; cursor: pointer; background: var(--border); }
+    .slider-dots button.active { background: var(--primary); }
+    .slider-dots[hidden] { display: none; }
+    .photo-edit-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .photo-edit-item { display: grid; gap: 6px; width: 96px; }
+    .photo-edit-item img { width: 96px; height: 72px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border); }
+    .photo-edit-item button { font-size: .8rem; padding: 4px 8px; border-radius: 6px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; }
     .store-details h3 { font-size: .95rem; color: var(--primary); margin-bottom: 2px; }
     .store-details p { color: var(--text); font-size: 1rem; }
     .store-details a { font-weight: 600; color: var(--text); }
@@ -244,9 +252,9 @@
     body { font-family: "Poppins", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif; }
     h1, h2, h3 { letter-spacing: -0.01em; }
     header { box-shadow: 0 2px 14px rgba(0,0,0,.06); }
-    .brand-mark { box-shadow: 0 4px 12px rgba(11,122,117,.3); }
+    .brand-mark { box-shadow: 0 4px 12px rgba(106,63,181,.3); }
     .eyebrow {
-      display: inline-block; background: rgba(11,122,117,.1);
+      display: inline-block; background: rgba(106,63,181,.1);
       padding: 4px 12px; border-radius: 999px;
     }
     .hero {
@@ -256,16 +264,16 @@
     }
     .hero .eyebrow { background: rgba(255,255,255,.16); color: #fff; }
     .hero h1 { font-weight: 700; }
-    .btn { box-shadow: 0 6px 18px rgba(11,122,117,.25); }
+    .btn { box-shadow: 0 6px 18px rgba(106,63,181,.25); }
     .hero .btn { box-shadow: 0 6px 18px rgba(0,0,0,.2); }
     .card { border-radius: 18px; }
-    .icon { box-shadow: inset 0 0 0 1px rgba(11,122,117,.15); }
+    .icon { box-shadow: inset 0 0 0 1px rgba(106,63,181,.15); }
     .stat { border-radius: 18px; }
-    .table-wrap { box-shadow: 0 10px 30px rgba(11,122,117,.08); }
+    .table-wrap { box-shadow: 0 10px 30px rgba(106,63,181,.08); }
     th { text-transform: uppercase; font-size: .78rem; letter-spacing: .06em; color: var(--muted); }
     .store-details {
       background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
-      padding: 26px 28px; box-shadow: 0 10px 30px rgba(11,122,117,.08);
+      padding: 26px 28px; box-shadow: 0 10px 30px rgba(106,63,181,.08);
     }
     .store-photo { box-shadow: 0 14px 34px rgba(0,0,0,.18); }
     footer { box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
@@ -319,19 +327,19 @@
     /* Colour accents */
     header { border-bottom: 3px solid transparent; border-image: linear-gradient(90deg, var(--primary), #f4a261, #6c8cff) 1; }
     .brand-mark { background: linear-gradient(135deg, var(--primary), #6c8cff); }
-    .btn { background: linear-gradient(135deg, var(--primary), #0fa39b); border-color: var(--primary); }
+    .btn { background: linear-gradient(135deg, var(--primary), #8a5fd0); border-color: var(--primary); }
     .btn.ghost { background: transparent; }
     .hero-badges span:nth-child(1) { background: rgba(244,162,97,.35); }
     .hero-badges span:nth-child(2) { background: rgba(108,140,255,.35); }
     .hero-badges span:nth-child(3) { background: rgba(255,255,255,.22); }
     .store-details > div:nth-child(odd) h3 { color: var(--primary); }
     .search-tools input[type="search"] { border: 2px solid var(--primary); }
-    .search-tools input[type="search"]:focus { box-shadow: 0 0 0 4px rgba(11,122,117,.15); }
-    th { background: linear-gradient(90deg, rgba(11,122,117,.14), rgba(108,140,255,.14)); color: var(--text); }
+    .search-tools input[type="search"]:focus { box-shadow: 0 0 0 4px rgba(106,63,181,.15); }
+    th { background: linear-gradient(90deg, rgba(106,63,181,.14), rgba(108,140,255,.14)); color: var(--text); }
     td strong { color: var(--primary); }
     .card:nth-child(3n+1) .icon { background: rgba(244,162,97,.22); color: #c7682c; }
     .card:nth-child(3n+2) .icon { background: rgba(108,140,255,.2); color: #3d56c9; }
-    .card:nth-child(3n) .icon { background: rgba(11,122,117,.14); color: var(--primary); }
+    .card:nth-child(3n) .icon { background: rgba(106,63,181,.14); color: var(--primary); }
     .alt { background: linear-gradient(180deg, var(--surface), var(--bg)); }
     footer { background: linear-gradient(135deg, var(--primary-dark), #2d3f8f); }
     .pharm-list strong { color: var(--primary); }
@@ -361,7 +369,7 @@
 
   <div id="login-screen">
     <form class="login-box" id="login-form">
-      <div class="brand"><span class="brand-mark">J</span><span>Jai Mahakali Medical Store</span></div>
+      <div class="brand"><span class="brand-mark">J</span><span data-store="name">Jai Mahakali Medical Store</span></div>
       <h2>Admin sign in</h2>
       <label>User name
         <input type="text" id="login-user" autocomplete="username" required>
@@ -380,6 +388,9 @@
   <div id="store-edit">
     <form class="store-edit-box" id="store-edit-form">
       <h2>Edit store details</h2>
+      <label>Store name
+        <input type="text" id="se-name" required>
+      </label>
       <label>Drug licence number
         <input type="text" id="se-licence" required>
       </label>
@@ -408,9 +419,10 @@
         <input type="email" id="se-email">
       </label>
       <label>Store photo
-        <input type="file" id="se-photo" accept="image/*">
+        <input type="file" id="se-photo" accept="image/*" multiple>
       </label>
-      <p class="form-note">Leave the photo unchanged to keep the current picture.</p>
+      <div class="photo-edit-list" id="se-photo-list"></div>
+      <p class="form-note">Choose photos to add. Use Remove on any photo to take it out.</p>
       <p class="login-error" id="se-error">Could not save. The photo may be too large; try a smaller image.</p>
       <button class="btn" type="submit">Save details</button>
       <button class="btn ghost" type="button" id="se-cancel">Cancel</button>
@@ -429,7 +441,7 @@
     <div class="container nav">
       <a href="#price-search" class="brand">
         <span class="brand-mark">J</span>
-        <span>Jai Mahakali Medical Store</span>
+        <span data-store="name">Jai Mahakali Medical Store</span>
       </a>
       <nav id="site-nav">
         <ul>
@@ -449,7 +461,8 @@
   <div class="container store-top is-loading">
     <div class="store-row">
       <div class="store-left">
-        <img id="store-photo" class="store-photo" src="store.webp" alt="Jai Mahakali Medical Store front view in Jhansi">
+        <img id="store-photo" class="store-photo" src="store.webp" alt="Jai Mahakali Medical Store front view">
+        <div class="slider-dots" id="slider-dots"></div>
         <a href="#" id="pharm-link" class="btn ghost">Pharmacists</a>
         <ol id="pharm-names" class="pharm-names"></ol>
       </div>
@@ -519,7 +532,7 @@
       <div class="container">
         <span class="eyebrow">Your trusted neighbourhood pharmacy</span>
         <h1>Quality medicines.<br>Caring service, every day.</h1>
-        <p>Jai Mahakali Medical Store brings genuine medicines, health essentials. Visit us in store or call us for medicines and advice.</p>
+        <p><span data-store="name">Jai Mahakali Medical Store</span> brings genuine medicines, health essentials. Visit us in store or call us for medicines and advice.</p>
         <div class="actions">
           <a href="#price-search" class="btn">Order Medicines</a>
           <a href="#services" class="btn ghost">Explore Services</a>
@@ -563,7 +576,7 @@
   <footer>
     <div class="container row">
       <div>
-        <div class="brand"><span class="brand-mark">J</span><span>Jai Mahakali Medical Store</span></div>
+        <div class="brand"><span class="brand-mark">J</span><span data-store="name">Jai Mahakali Medical Store</span></div>
         <p style="margin-top:8px;">Genuine medicines. Caring service.</p>
         <p><span data-store="address">OPP MLB MEDICAL COLLEGE GATE NO.1 INSIDE KAMLA HOSPITAL JHANSI</span></p>
         <p>Phone: <a data-store="phone" href="tel:+919936797633">9936797633</a></p>
@@ -572,7 +585,7 @@
       <div>
         <p><a href="#price-search">Prices</a></p>
         <p>Drug Licence No.: <span data-store="licence">UP93200000365 ; UP93210000365</span></p>
-        <p>&copy; <span id="year"></span> Jai Mahakali Medical Store. All rights reserved.</p>
+        <p>&copy; <span id="year"></span> <span data-store="name">Jai Mahakali Medical Store</span>. All rights reserved.</p>
       </div>
     </div>
   <div class="container footer-disclaimer">
@@ -998,22 +1011,43 @@
 
     // Store details: the admin can edit them; the saved values are restored on load
     var STORE_KEY = 'ratna-store';
-    var pendingPhoto = null;
+    var editPhotos = [];
     var storeEdit = document.getElementById('store-edit');
     var storePhoto = document.getElementById('store-photo');
+    var storePhotos = ['store.webp'];
+    // Show one photo and draw a dot for each photo; clicking a dot shows that photo
+    function showPhoto(i) {
+      storePhoto.src = storePhotos[i];
+      var dots = document.getElementById('slider-dots');
+      dots.textContent = '';
+      dots.hidden = storePhotos.length < 2;
+      storePhotos.forEach(function (src, n) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Photo ' + (n + 1));
+        if (n === i) b.className = 'active';
+        b.addEventListener('click', function () { showPhoto(n); });
+        dots.appendChild(b);
+      });
+    }
+    showPhoto(0);
     function currentStore() {
       function text(attr) {
         var el = document.querySelector('[data-store="' + attr + '"]');
         return el ? el.textContent : '';
       }
       return {
-        licence: text('licence'), foodlicence: text('foodlicence'), gst: text('gst'),
+        name: text('name'), licence: text('licence'), foodlicence: text('foodlicence'), gst: text('gst'),
         pharmacists: pharmacistText,
         disclaimer: disclaimerText,
         address: text('address'), phone: text('phone'), hours: text('hours'), email: text('email')
       };
     }
     function applyStore(sd) {
+      if (sd.name) {
+        document.querySelectorAll('[data-store="name"]').forEach(function (el) { el.textContent = sd.name; });
+        document.title = sd.name;
+      }
       document.querySelectorAll('[data-store="licence"]').forEach(function (el) { el.textContent = sd.licence; });
       // Older saved details may not have these two fields yet, so fall back to the defaults
       document.querySelectorAll('[data-store="foodlicence"]').forEach(function (el) { el.textContent = sd.foodlicence || '12715013000089'; });
@@ -1029,7 +1063,9 @@
       renderPharmNames();
       if (sd.disclaimer) disclaimerText = sd.disclaimer;
       renderDisclaimer();
-      if (sd.photo) storePhoto.src = sd.photo;
+      if (Array.isArray(sd.photos) && sd.photos.length) storePhotos = sd.photos;
+      else if (sd.photo) storePhotos = [sd.photo];
+      showPhoto(0);
     }
     // Load the saved store details: from shared storage, otherwise from this browser
     async function loadStoreDetails() {
@@ -1047,6 +1083,7 @@
 
     document.getElementById('edit-store-btn').addEventListener('click', function () {
       var cur = currentStore();
+      document.getElementById('se-name').value = cur.name;
       document.getElementById('se-licence').value = cur.licence;
       document.getElementById('se-address').value = cur.address;
       document.getElementById('se-phone').value = cur.phone;
@@ -1057,15 +1094,38 @@
       document.getElementById('se-pharm').value = cur.pharmacists;
       document.getElementById('se-disclaimer').value = cur.disclaimer;
       document.getElementById('se-error').style.display = 'none';
-      pendingPhoto = null;
+      editPhotos = storePhotos.slice();
+      renderEditPhotos();
       storeEdit.classList.add('open');
     });
+    // Draw the photos being edited, each with a Remove button
+    function renderEditPhotos() {
+      var list = document.getElementById('se-photo-list');
+      list.textContent = '';
+      editPhotos.forEach(function (src, i) {
+        var item = document.createElement('div');
+        item.className = 'photo-edit-item';
+        var img = document.createElement('img');
+        img.src = src;
+        img.alt = 'Photo ' + (i + 1);
+        var del = document.createElement('button');
+        del.type = 'button';
+        del.textContent = 'Remove';
+        del.addEventListener('click', function () { editPhotos.splice(i, 1); renderEditPhotos(); });
+        item.appendChild(img);
+        item.appendChild(del);
+        list.appendChild(item);
+      });
+    }
+    // Choosing files adds them to the photos already in the list
     document.getElementById('se-photo').addEventListener('change', function () {
-      var file = this.files[0];
-      if (!file) { pendingPhoto = null; return; }
-      var reader = new FileReader();
-      reader.onload = function (e) { pendingPhoto = e.target.result; };
-      reader.readAsDataURL(file);
+      var files = Array.prototype.slice.call(this.files);
+      this.value = '';
+      files.forEach(function (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) { editPhotos.push(e.target.result); renderEditPhotos(); };
+        reader.readAsDataURL(file);
+      });
     });
     document.getElementById('se-cancel').addEventListener('click', function () {
       storeEdit.classList.remove('open');
@@ -1073,6 +1133,7 @@
     document.getElementById('store-edit-form').addEventListener('submit', async function (e) {
       e.preventDefault();
       var sd = {
+        name: document.getElementById('se-name').value.trim(),
         licence: document.getElementById('se-licence').value.trim(),
         foodlicence: document.getElementById('se-foodlicence').value.trim(),
         gst: document.getElementById('se-gst').value.trim(),
@@ -1082,7 +1143,7 @@
         phone: document.getElementById('se-phone').value.trim(),
         hours: document.getElementById('se-hours').value.trim(),
         email: document.getElementById('se-email').value.trim(),
-        photo: pendingPhoto || storePhoto.getAttribute('src')
+        photos: editPhotos.length ? editPhotos : ['store.webp']
       };
       try {
         await saveShared({ store: sd });
